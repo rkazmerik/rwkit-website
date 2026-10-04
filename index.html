@@ -1,28 +1,541 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RWKIT Consulting</title>
-  <style>
-    body {
-      margin: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-      background: #0f172a;
-      color: #f8fafc;
-    }
-    h1 {
-      font-size: 2rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RWKIT Consulting — Exceptional Engineering for the AI era</title>
+<meta name="description" content="Exceptional engineering for the AI era: data foundations and durable AI systems, not fast-and-disposable builds. RWKIT Consulting delivers advisory and delivery for SMBs and consulting firms alike, with range across data engineering, software, BI, and ML/AI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="shortcut icon" href="assets/img/favicon.ico">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <h1>Hello world &mdash; RWKIT Consulting</h1>
+
+<noscript>
+  <h1>RWKIT Consulting</h1>
+  <p>Exceptional engineering for the AI era — data foundations and durable AI systems for SMBs and consulting firms. This site needs JavaScript for navigation — in the meantime, reach us at <a href="mailto:kaz@rwkit.io">kaz@rwkit.io</a> or <a href="https://calendar.app.google/Z1bg9ZgdPiTysBp16">book a call</a>.</p>
+</noscript>
+
+<div class="split-app level-1" id="split-app">
+
+  <!-- PANEL 1 — persistent rail -->
+  <aside class="rail">
+    <a class="rail-brand" href="#home">
+      <img class="brand-logo" src="assets/img/logo-light.svg" alt="RWKIT Consulting" height="58">
+    </a>
+    <nav class="rail-nav">
+      <a class="rail-item" href="#home" data-route="home">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
+        <span class="rail-label">Home</span>
+      </a>
+      <a class="rail-item" href="#services" data-route="services">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 12 12 17 22 12"/><polyline points="2 17 12 22 22 17"/></svg>
+        <span class="rail-label">Services</span>
+      </a>
+      <a class="rail-item" href="#case-studies" data-route="case-studies">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="20" x2="4" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="20" y1="20" x2="20" y2="14"/></svg>
+        <span class="rail-label">Case Studies</span>
+      </a>
+      <a class="rail-item" href="#about" data-route="about">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+        <span class="rail-label">About</span>
+      </a>
+      <a class="rail-item" href="#contact" data-route="contact">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+        <span class="rail-label">Contact</span>
+      </a>
+    </nav>
+    <a class="rail-cta" href="https://calendar.app.google/Z1bg9ZgdPiTysBp16" target="_blank" rel="noopener" title="Book a call">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <span class="rail-label">Book a call</span>
+    </a>
+  </aside>
+
+  <!-- PANEL 2 — section menu (per-route hero + scrollspy jump list) -->
+  <div class="section-pane">
+    <button class="mobile-back" type="button" data-level="menu">← Back</button>
+    <div class="section-pane-inner">
+
+      <div class="section-menu" data-route="home">
+        <div class="idx">01 — Home</div>
+        <h2>Exceptional engineering for the AI era.</h2>
+        <div class="section-tagline">Data foundations and durable AI systems — one systems thinker with range across the whole stack, not a bench of narrow specialists.</div>
+        <nav class="sub-nav">
+          <a class="sub-nav-item" href="#home/overview" data-route="home" data-sub="overview"><span class="n mono">01</span><span class="label">Overview</span><span class="desc">The pitch, the stats, the start.</span></a>
+          <a class="sub-nav-item" href="#home/capabilities" data-route="home" data-sub="capabilities"><span class="n mono">02</span><span class="label">Capabilities</span><span class="desc">What we build, across industries.</span></a>
+          <a class="sub-nav-item" href="#home/approach" data-route="home" data-sub="approach"><span class="n mono">03</span><span class="label">Approach</span><span class="desc">Who we work with, and how.</span></a>
+        </nav>
+      </div>
+
+      <div class="section-menu" data-route="services">
+        <div class="idx">02 — Services</div>
+        <h2>Two ways to work with RWKIT.</h2>
+        <div class="section-tagline">Advisory when you need direction. Delivery when you need it built.</div>
+        <nav class="sub-nav">
+          <a class="sub-nav-item" href="#services/offerings" data-route="services" data-sub="offerings"><span class="n mono">01</span><span class="label">Offerings</span><span class="desc">Advisory and delivery, side by side.</span></a>
+          <a class="sub-nav-item" href="#services/engagement-path" data-route="services" data-sub="engagement-path"><span class="n mono">02</span><span class="label">Engagement Path</span><span class="desc">How a typical build unfolds.</span></a>
+          <a class="sub-nav-item" href="#services/pricing" data-route="services" data-sub="pricing"><span class="n mono">03</span><span class="label">Pricing</span><span class="desc">What it costs, no surprises.</span></a>
+        </nav>
+      </div>
+
+      <div class="section-menu" data-route="case-studies">
+        <div class="idx">03 — Case Studies</div>
+        <h2>Field notes from the work.</h2>
+        <div class="section-tagline">Anonymized to protect client confidentiality. The results are real.</div>
+        <nav class="sub-nav">
+          <a class="sub-nav-item" href="#case-studies/deep-dive-1" data-route="case-studies" data-sub="deep-dive-1"><span class="n mono">01</span><span class="label">Analytics Overhaul</span><span class="desc">Manual reporting, rebuilt for BI and AI.</span></a>
+          <a class="sub-nav-item" href="#case-studies/deep-dive-2" data-route="case-studies" data-sub="deep-dive-2"><span class="n mono">02</span><span class="label">Agentic AI Data Stack</span><span class="desc">A durable foundation, agentic layer on top.</span></a>
+          <a class="sub-nav-item" href="#case-studies/deep-dive-3" data-route="case-studies" data-sub="deep-dive-3"><span class="n mono">03</span><span class="label">Marketing Intelligence</span><span class="desc">Paid media and engagement, unified for AI.</span></a>
+          <a class="sub-nav-item" href="#case-studies/more-results" data-route="case-studies" data-sub="more-results"><span class="n mono">04</span><span class="label">More Results</span><span class="desc">Eight more wins from the field.</span></a>
+        </nav>
+      </div>
+
+      <div class="section-menu" data-route="about">
+        <div class="idx">04 — About</div>
+        <h2>Ryan Kazmerik, Data &amp; AI Architect.</h2>
+        <div class="section-tagline">Founder of RWKIT Consulting. 15+ years in data leadership.</div>
+        <nav class="sub-nav">
+          <a class="sub-nav-item" href="#about/who-i-am" data-route="about" data-sub="who-i-am"><span class="n mono">01</span><span class="label">Who I Am</span><span class="desc">The short version.</span></a>
+          <a class="sub-nav-item" href="#about/strengths" data-route="about" data-sub="strengths"><span class="n mono">02</span><span class="label">Core Strengths</span><span class="desc">What I actually bring to the table.</span></a>
+          <a class="sub-nav-item" href="#about/experience" data-route="about" data-sub="experience"><span class="n mono">03</span><span class="label">Experience</span><span class="desc">15+ years, one career timeline.</span></a>
+          <a class="sub-nav-item" href="#about/credentials" data-route="about" data-sub="credentials"><span class="n mono">04</span><span class="label">Credentials</span><span class="desc">Degrees, stack, certifications.</span></a>
+        </nav>
+      </div>
+
+      <div class="section-menu" data-route="contact">
+        <div class="idx">05 — Contact</div>
+        <h2>Let's talk data.</h2>
+        <div class="section-tagline">Tell me what's not working, or just book 30 minutes.</div>
+        <nav class="sub-nav">
+          <a class="sub-nav-item" href="#contact/get-in-touch" data-route="contact" data-sub="get-in-touch"><span class="n mono">01</span><span class="label">Get in Touch</span><span class="desc">Book a call or send an email.</span></a>
+          <a class="sub-nav-item" href="#contact/good-to-know" data-route="contact" data-sub="good-to-know"><span class="n mono">02</span><span class="label">Good to Know</span><span class="desc">Location, response time, next step.</span></a>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL 3 — detail content (single scrolling page per route) -->
+  <div class="detail-pane" id="detail-pane">
+    <button class="mobile-back" type="button" data-level="detail">← Back</button>
+    <div class="detail-crumb" id="detail-crumb">Home / Overview</div>
+    <div class="detail-body">
+
+      <!-- HOME -->
+      <div class="route-content" data-route="home">
+
+        <section class="content-block" data-route="home" data-sub="overview">
+          <div class="block-head"><span class="block-n mono">01</span><h2>Overview</h2></div>
+          <p class="lede">You're getting someone who understands the AI space, but who also has a proven history of building durable solutions that drive real outcomes — a systems thinker with a brain for business. And when a project calls for more hands, I bring in a peer network of expert-level consultants to extend what I can deliver — not a bench of juniors learning on your dime.</p>
+          <div class="hero-ctas">
+            <a class="cta" href="https://calendar.app.google/Z1bg9ZgdPiTysBp16" target="_blank" rel="noopener">Book a call →</a>
+            <a class="cta-ghost" href="#case-studies/deep-dive-1">See case studies</a>
+          </div>
+          <div class="stat-strip">
+            <div class="stat"><div class="num mono">15+</div><div class="lbl">Years data leadership</div></div>
+            <div class="stat"><div class="num mono">5+</div><div class="lbl">Engineering teams built</div></div>
+            <div class="stat"><div class="num mono">4×4</div><div class="lbl">Senior roles, four disciplines</div></div>
+            <div class="stat"><div class="num mono">20+</div><div class="lbl">People on the largest team led</div></div>
+          </div>
+        </section>
+
+        <section class="content-block" data-route="home" data-sub="capabilities">
+          <div class="block-head"><span class="block-n mono">02</span><h2>Capabilities</h2></div>
+          <p class="lede">From the raw data layer to the AI that acts on it — built across engineering-heavy enterprises, sports &amp; entertainment, and ad tech.</p>
+          <div class="grid-3">
+            <div class="box"><span class="num mono">01</span><h4>AI-Ready Data Platforms</h4><p>Modern lakehouse and warehouse foundations that serve BI, ML, and LLMs from one governed source of truth.</p></div>
+            <div class="box"><span class="num mono">02</span><h4>Agentic AI &amp; LLM Systems</h4><p>Agents, RAG, and natural-language analytics built on data they can actually trust.</p></div>
+            <div class="box"><span class="num mono">03</span><h4>Real-Time Data Engineering</h4><p>Streaming pipelines, ingestion, and orchestration built to be owned — not babysat.</p></div>
+            <div class="box"><span class="num mono">04</span><h4>Audience &amp; Marketing Intelligence</h4><p>Paid media, identity resolution, and engagement data unified into segmentation engines that move ad revenue.</p></div>
+            <div class="box"><span class="num mono">05</span><h4>Fan &amp; Engagement Analytics</h4><p>Turning engagement, content, and transaction data into decisions for sports and entertainment properties.</p></div>
+            <div class="box"><span class="num mono">06</span><h4>Production ML</h4><p>Retention, propensity, and NLP models that leave the notebook and run every day in production.</p></div>
+          </div>
+        </section>
+
+        <section class="content-block" data-route="home" data-sub="approach">
+          <div class="block-head"><span class="block-n mono">03</span><h2>Approach</h2></div>
+          <p class="lede">The edge isn't depth in one narrow lane — it's range across the full path from raw data to shipped outcome, backed by 15+ years of data leadership. Fast and disposable isn't the goal; fast and durable is.</p>
+          <div class="step-label">What we cover</div>
+          <div class="chip-row">
+            <span class="chip">Data Engineering</span>
+            <span class="chip">Software Development</span>
+            <span class="chip">BI &amp; Analytics</span>
+            <span class="chip">ML &amp; AI</span>
+            <span class="chip">Product Management</span>
+          </div>
+          <div class="step-label" style="margin-top:20px;">Where we've proven it</div>
+          <div class="chip-row">
+            <span class="chip">Energy</span>
+            <span class="chip">Sports &amp; Entertainment</span>
+            <span class="chip">Streaming &amp; Ad Tech</span>
+            <span class="chip">Logistics &amp; Supply Chain</span>
+            <span class="chip">Higher Education</span>
+          </div>
+          <div class="jump-grid">
+            <a class="jump-tile" href="#services/offerings"><div class="n mono">02 →</div><h4>Services &amp; pricing</h4><p>Advisory, delivery, and what it costs.</p></a>
+            <a class="jump-tile" href="#case-studies/deep-dive-1"><div class="n mono">03 →</div><h4>Case studies</h4><p>Anonymized results from the field.</p></a>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- SERVICES -->
+      <div class="route-content" data-route="services">
+
+        <section class="content-block" data-route="services" data-sub="offerings">
+          <div class="block-head"><span class="block-n mono">01</span><h2>Offerings</h2></div>
+          <div class="svc-group">
+            <div class="svc-head">
+              <div class="svc-eyebrow mono">Advisory</div>
+              <h3>Direction before the build.</h3>
+              <p>Fixed-fee engagements that end in a clear, executable plan.</p>
+            </div>
+            <div class="svc-list">
+              <div class="svc-item"><span class="svc-n mono">A1</span><div><h4>Assessments</h4><p>AI readiness, data maturity, ML opportunity, or analytics health — a focused look at where you stand and a clear roadmap for what's next. The intro assessment is free; the in-depth version is credited in full if you move to a build.</p></div></div>
+              <div class="svc-item"><span class="svc-n mono">A2</span><div><h4>Data Platform Architecture &amp; Design</h4><p>A clear architectural blueprint before anyone writes a line of code — stack decisions, data modeling approach, and a build roadmap your team, or RWKIT, can execute against.</p></div></div>
+            </div>
+          </div>
+          <div class="svc-group svc-group--alt">
+            <div class="svc-head">
+              <div class="svc-eyebrow mono">Delivery</div>
+              <h3>Built to last.</h3>
+              <p>Hands-on builds, architected for your team to own after handoff.</p>
+            </div>
+            <div class="svc-list">
+              <div class="svc-item"><span class="svc-n mono">D1</span><div><h4>Modern Data Platform Builds</h4><p>Pipelines, warehousing, governance, access controls, and security — built to scale on proven, cost-effective architecture.</p></div></div>
+              <div class="svc-item"><span class="svc-n mono">D2</span><div><h4>AI Agent Development</h4><p>Custom AI agents built on your governed data — designed, developed, and deployed to act on it reliably, not just demo well.</p></div></div>
+              <div class="svc-item"><span class="svc-n mono">D3</span><div><h4>Conversational Analytics &amp; BI</h4><p>The "AI Intelligence Engine" — give every business user their own on-demand analyst.</p></div></div>
+              <div class="svc-item"><span class="svc-n mono">D4</span><div><h4>Training &amp; Change Management</h4><p>Hands-on training, documentation, and change management so your team can own and operate what we build.</p></div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-block" data-route="services" data-sub="engagement-path">
+          <div class="block-head"><span class="block-n mono">02</span><h2>Engagement Path</h2></div>
+          <div class="ledger">
+            <div class="ledger-row">
+              <div class="step-n mono">01</div>
+              <div>
+                <div class="step-label">Assess</div>
+                <div class="offer-title">Start with a free assessment</div>
+                <div class="offer-desc">Pick the lens that fits where you are. We review your stack, data, and business questions, and come back with what's working, what's blocking you, and where to start.</div>
+                <div class="chip-row" style="margin-top:12px;">
+                  <span class="chip">AI Readiness</span>
+                  <span class="chip">Data Maturity</span>
+                  <span class="chip">ML Opportunity</span>
+                  <span class="chip">Analytics Health</span>
+                  <span class="chip">Platform Architecture</span>
+                </div>
+                <div class="step-price mono">Free</div>
+                <div class="step-note">Need more depth? The in-depth assessment is $2,500 CAD, credited in full toward Step 2.</div>
+              </div>
+            </div>
+            <div class="ledger-row">
+              <div class="step-n mono">02</div>
+              <div>
+                <div class="step-label">Build</div>
+                <div class="offer-title">The solution stack</div>
+                <div class="offer-desc">We design and build the durable stack the solution needs — data platform, pipelines, models, and governance — proving one domain end-to-end before expanding.</div>
+                <div class="step-price mono">Fixed fee, scoped after the assessment</div>
+              </div>
+            </div>
+            <div class="ledger-row">
+              <div class="step-n mono">03</div>
+              <div>
+                <div class="step-label">Operate — choose who runs it</div>
+                <div class="ledger-branch">
+                  <div class="step-label">Option A · Your team</div>
+                  <div class="offer-title">Training &amp; Change Management</div>
+                  <div class="offer-desc">Hands-on training, documentation, and change management so your team owns and operates the stack with confidence.</div>
+                </div>
+                <div class="ledger-branch">
+                  <div class="step-label">Option B · AI agents</div>
+                  <div class="offer-title">AI Agent Development</div>
+                  <div class="offer-desc">Custom AI agents developed to operate the solution — monitoring, reporting, and acting on your data so your team doesn't have to.</div>
+                </div>
+                <div class="step-price mono">Fixed fee or day rate — your choice</div>
+              </div>
+            </div>
+            <div class="ledger-row done">
+              <div class="step-n mono">✓</div>
+              <div>
+                <div class="step-label">Done</div>
+                <div class="offer-title">A durable solution with a clear owner — your team, or your agents.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-block" data-route="services" data-sub="pricing">
+          <div class="block-head"><span class="block-n mono">03</span><h2>Pricing</h2></div>
+          <p class="lede">Every engagement is scoped after a conversation, not pulled from a rate card. Advisory work is fixed-fee. Delivery work is fixed-fee or day-rate, agreed upfront before anything starts — no hourly ambiguity, no surprises on the invoice.</p>
+          <div class="deep-result">Every engagement starts with a <b>free assessment</b>. Need more depth? The in-depth assessment is a fixed <b>$2,500 CAD</b>, credited in full toward a larger engagement if you move forward.</div>
+          <div class="problem-list" style="margin-top:30px;">
+            <div class="problem-row"><div class="num mono">01</div><div><h4>Advisory</h4><p>Fixed fee, scoped to a clear deliverable — an assessment or an architecture roadmap, not an open-ended retainer.</p></div></div>
+            <div class="problem-row"><div class="num mono">02</div><div><h4>Delivery</h4><p>Fixed fee or day rate, whichever fits the engagement — agreed before work starts, not discovered after.</p></div></div>
+            <div class="problem-row"><div class="num mono">03</div><div><h4>Ad hoc &amp; scoping work</h4><p>Day rate, for work too small or too early to scope as a fixed project.</p></div></div>
+          </div>
+          <div style="margin-top:26px;">
+            <a class="cta" href="https://calendar.app.google/Z1bg9ZgdPiTysBp16" target="_blank" rel="noopener">Book a call to scope your project →</a>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- CASE STUDIES -->
+      <div class="route-content" data-route="case-studies">
+
+        <section class="content-block" data-route="case-studies" data-sub="deep-dive-1">
+          <div class="block-head"><span class="block-n mono">01</span><h2>Analytics Overhaul</h2></div>
+          <div class="deep-dive">
+            <div class="idx" style="margin-bottom:14px;">Deep dive · 01</div>
+            <h3>Rebuilding a manual reporting workflow into a platform built for both BI and AI</h3>
+            <div class="deep-grid">
+              <div><div class="lbl">Situation</div><p>A sports &amp; entertainment media company had no reusable data model: every request came in, someone hand-wrote SQL, and the answer went back as a static spreadsheet.</p></div>
+              <div><div class="lbl">Approach</div><p>Built a modern AWS-native data stack — Airflow, dbt, S3/Iceberg, Athena, ClickHouse — modeling data in a one-big-table (OBT) design optimized for both BI and LLM consumption.</p></div>
+              <div><div class="lbl">Why it worked</div><p>An Iceberg-based, Airflow/dbt-orchestrated architecture kept the platform cost-effective at high data volume, without a premature data lake.</p></div>
+            </div>
+            <div class="deep-result">Eliminated the manual SQL-to-spreadsheet workflow entirely, at roughly <b>60% lower infrastructure cost</b> than a comparable warehouse-based approach.</div>
+            <div class="chip-row"><span class="chip">Airflow</span><span class="chip">dbt</span><span class="chip">S3 / Iceberg</span><span class="chip">Athena</span><span class="chip">ClickHouse</span><span class="chip">LLM data access</span></div>
+          </div>
+        </section>
+
+        <section class="content-block" data-route="case-studies" data-sub="deep-dive-2">
+          <div class="block-head"><span class="block-n mono">02</span><h2>Agentic AI Data Stack</h2></div>
+          <div class="deep-dive">
+            <div class="idx" style="margin-bottom:14px;">Deep dive · 02</div>
+            <h3>An agentic AI data stack built on a durable foundation — not just dashboards</h3>
+            <div class="deep-grid">
+              <div><div class="lbl">Situation</div><p>A growing SaaS platform company wanted more than dashboards — AI agents that could act directly on customer and product data, without standing up a fragile stack to get there.</p></div>
+              <div><div class="lbl">Approach</div><p>Foundation first: dbt-driven transforms on a dedicated Postgres database, fed near-real-time from event streams, with row-level security enforcing tenant isolation. The agentic layer was built directly on top of that governed foundation — developed AI-natively using Claude Code.</p></div>
+              <div><div class="lbl">Why it worked</div><p>A durable foundation meant the agentic layer had something reliable to act on from day one. One domain was proven end-to-end before expanding, so the pattern was validated before it was repeated.</p></div>
+            </div>
+            <div class="deep-result">A phased roadmap the client could execute with confidence: <b>MVP in 6–8 weeks</b>, expansion in <b>10–12 weeks</b>, the agentic layer added only once the foundation was proven.</div>
+            <div class="chip-row"><span class="chip">dbt</span><span class="chip">Postgres</span><span class="chip">Row-Level Security</span><span class="chip">Governed Metrics</span><span class="chip">Agentic AI</span><span class="chip">Claude Code</span></div>
+
+            <div class="flow">
+              <div class="flow-row"><div class="flow-box"><span class="tag">Raw / Staging</span><h5>Event streams</h5><p>Near real-time</p></div></div>
+              <div class="flow-arrow">↓</div>
+              <div class="flow-row"><div class="flow-box"><span class="tag">Intermediate</span><h5>Conformed dimensional model</h5><p>Dim tables · Fact tables</p></div></div>
+              <div class="flow-arrow">↓</div>
+              <div class="flow-row">
+                <div class="flow-box"><span class="tag">Presentation</span><h5>Internal BI &amp; Dashboards</h5></div>
+                <div class="flow-box"><span class="tag">Presentation</span><h5>Customer Portal (RLS)</h5></div>
+              </div>
+              <div class="flow-arrow">↓</div>
+              <div class="flow-row"><div class="flow-box core"><span class="tag">Agentic Layer</span><h5>AI agents acting on governed data</h5><p>Built AI-natively with Claude Code</p></div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-block" data-route="case-studies" data-sub="deep-dive-3">
+          <div class="block-head"><span class="block-n mono">03</span><h2>Marketing Intelligence</h2></div>
+          <div class="deep-dive">
+            <div class="idx" style="margin-bottom:14px;">Deep dive · 03</div>
+            <h3>Wiring the acquisition funnel into an AI-powered marketing intelligence and segmentation engine</h3>
+            <div class="deep-grid">
+              <div><div class="lbl">Situation</div><p>An ad tech company's acquisition data lived inside each paid media platform, disconnected from what users actually did once they arrived.</p></div>
+              <div><div class="lbl">Approach</div><p>Wired Meta, TikTok, and Google Ad Manager into the data lake, joining acquisition with engagement data. LiveRamp handled identity resolution, and the unified model fed an LLM layer for marketing intelligence and segmentation.</p></div>
+              <div><div class="lbl">Why it worked</div><p>One identity-resolved view of every user, from first impression to ongoing engagement — so segments were built on behaviour, not just clicks.</p></div>
+            </div>
+            <div class="deep-result">A marketing intelligence engine that turns unified acquisition and engagement data into <b>targeted advertising segments</b>, built and scaled through <b>identity resolution</b>.</div>
+            <div class="chip-row"><span class="chip">Meta</span><span class="chip">TikTok</span><span class="chip">Google Ad Manager</span><span class="chip">LiveRamp</span><span class="chip">Identity Resolution</span><span class="chip">LLM Segmentation</span></div>
+
+            <div class="flow">
+              <div class="flow-row">
+                <div class="flow-box"><span class="tag">Paid Media</span><h5>Meta</h5></div>
+                <div class="flow-box"><span class="tag">Paid Media</span><h5>TikTok</h5></div>
+                <div class="flow-box"><span class="tag">Paid Media</span><h5>Google Ad Manager</h5></div>
+              </div>
+              <div class="flow-arrow">↓</div>
+              <div class="flow-row"><div class="flow-box"><span class="tag">Data Lake</span><h5>Acquisition + engagement data</h5><p>One model, first touch to ongoing use</p></div></div>
+              <div class="flow-arrow">↓</div>
+              <div class="flow-row"><div class="flow-box"><span class="tag">Identity</span><h5>LiveRamp resolution</h5><p>Segmentation and scaling</p></div></div>
+              <div class="flow-arrow">↓</div>
+              <div class="flow-row"><div class="flow-box core"><span class="tag">AI Layer</span><h5>Marketing intelligence &amp; segmentation engine</h5><p>LLM-powered, feeding targeted ad segments</p></div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-block" data-route="case-studies" data-sub="more-results">
+          <div class="block-head"><span class="block-n mono">04</span><h2>More Results</h2></div>
+          <p class="lede">A selection of outcomes from across the years — the kind of results this experience makes possible.</p>
+          <div class="case-list">
+            <div class="case-item">
+              <div class="num">01</div>
+              <div><span class="tag">AI Prototype</span><h4>From AI prototype to a funded roadmap</h4>
+                <p class="body-text">Ran customer discovery interviews, built a Claude-based RAG prototype, and demoed it on-site with real users.</p>
+                <div class="case-result">Secured a <b>$60K partnership commitment</b> to extend AI capability onto the client's roadmap.</div>
+              </div>
+            </div>
+            <div class="case-item">
+              <div class="num">02</div>
+              <div><span class="tag">Data Monetization</span><h4>Evaluating a data clean room across two enterprise clients</h4>
+                <p class="body-text">Scoped requirements under strict PII and ownership constraints, evaluated clean-room approaches, proposed three MVP options.</p>
+                <div class="case-result">Secured a <b>$100K paid pilot</b> between the two clients.</div>
+              </div>
+            </div>
+            <div class="case-item">
+              <div class="num">03</div>
+              <div><span class="tag">Trust &amp; Adoption</span><h4>Rebuilding trust in a distrusted ML model</h4>
+                <p class="body-text">Diagnosed the source of mistrust, challenged the original multi-class design, and redesigned around an interpretable model.</p>
+                <div class="case-result"><b>40% increase in adoption</b> and $200K in additional revenue.</div>
+              </div>
+            </div>
+            <div class="case-item">
+              <div class="num">04</div>
+              <div><span class="tag">Pipeline Performance</span><h4>Cutting data ingestion time from 90 days to 12</h4>
+                <p class="body-text">Evaluated vendors, selected a viable service, ran an MVP, and redesigned the ingestion pipeline end to end.</p>
+                <div class="case-result">Ingestion time cut <b>from 90 days to 12</b>.</div>
+              </div>
+            </div>
+            <div class="case-item">
+              <div class="num">05</div>
+              <div><span class="tag">Audience Activation</span><h4>Scaling a custom audience pipeline for programmatic ad sales</h4>
+                <p class="body-text">Integrated identity resolution, ad delivery, and the internal data lake to scale segments from 20K to 2M users.</p>
+                <div class="case-result"><b>Doubled the number of brand deals</b> unlocked for the business.</div>
+              </div>
+            </div>
+            <div class="case-item">
+              <div class="num">06</div>
+              <div><span class="tag">ML Infrastructure</span><h4>Migrating data science from notebooks to a production pipeline</h4>
+                <p class="body-text">Designed and deployed a fully managed ML pipeline with automated infrastructure and cost controls.</p>
+                <div class="case-result">One year in production: costs rose <b>just 0.2% a year</b>.</div>
+              </div>
+            </div>
+            <div class="case-item">
+              <div class="num">07</div>
+              <div><span class="tag">Predictive Modeling</span><h4>A retention model that beat the industry benchmark</h4>
+                <p class="body-text">Built and deployed a binary classification model on engagement and transaction data, with daily automated inference.</p>
+                <div class="case-result">Helped increase renewals by an additional <b>8%</b>.</div>
+              </div>
+            </div>
+            <div class="case-item">
+              <div class="num">08</div>
+              <div><span class="tag">NLP &amp; Text Analytics</span><h4>Extracting safety insights from years of operational text data</h4>
+                <p class="body-text">Built a custom search and analytics platform, applying NLP models to extract insights from unstructured incident reports.</p>
+                <div class="case-result">Gave teams a direct, <b>searchable view</b> into safety trends.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- ABOUT -->
+      <div class="route-content" data-route="about">
+
+        <section class="content-block" data-route="about" data-sub="who-i-am">
+          <div class="block-head"><span class="block-n mono">01</span><h2>Who I Am</h2></div>
+          <p class="lede">You're getting someone who understands the AI space, but who also has a proven history of building durable solutions that drive real outcomes — a systems thinker with a brain for business. I go deep across the full path from raw data to shipped outcome: data engineering, software development, BI &amp; analytics, ML &amp; AI, and product management — not just one narrow lane.</p>
+          <p class="lede">I've taken organizations from immature data cultures to AI-driven analytics, reporting, LLM, and agentic workflow capability — with outcomes ranging from 20%+ revenue increases to 10x improvements in data utilization, across energy, sports &amp; entertainment, streaming &amp; ad tech, logistics, and higher education.</p>
+        </section>
+
+        <section class="content-block" data-route="about" data-sub="strengths">
+          <div class="block-head"><span class="block-n mono">02</span><h2>Core Strengths</h2></div>
+          <div class="grid-3">
+            <div class="box"><span class="num mono">01</span><h4>Client Discovery &amp; Scoping</h4><p>Turning ambiguous asks into clearly scoped, fundable use cases.</p></div>
+            <div class="box"><span class="num mono">02</span><h4>Architecture &amp; MVP Delivery</h4><p>Proving a pattern end-to-end on one domain before expanding.</p></div>
+            <div class="box"><span class="num mono">03</span><h4>Stakeholder Trust &amp; Adoption</h4><p>Diagnosing why a model isn't used, and redesigning it so it is.</p></div>
+          </div>
+        </section>
+
+        <section class="content-block" data-route="about" data-sub="experience">
+          <div class="block-head"><span class="block-n mono">03</span><h2>Experience</h2></div>
+          <div class="career">
+            <div class="career-item">
+              <div class="career-years mono">2025 — 2026</div>
+              <div><div class="career-role">Head of Data &amp; AI</div><div class="career-org">Sports &amp; entertainment media company — architected an AI-native AWS data platform and an audience activation pipeline serving millions of users.</div></div>
+            </div>
+            <div class="career-item">
+              <div class="career-years mono">2024 — 2025</div>
+              <div><div class="career-role">Director of Product, Data</div><div class="career-org">Sports analytics platform serving professional teams across major pro leagues — led product strategy and roadmap for the data organization.</div></div>
+            </div>
+            <div class="career-item">
+              <div class="career-years mono">2021 — 2024</div>
+              <div><div class="career-role">Director, Data Engineering &amp; ML / Data Science</div><div class="career-org">Sports analytics platform serving professional teams across major pro leagues.</div></div>
+            </div>
+            <div class="career-item">
+              <div class="career-years mono">2020 — 2021</div>
+              <div><div class="career-role">Senior Data Scientist</div><div class="career-org">Energy sector — text analytics and NLP for operational safety insights.</div></div>
+            </div>
+            <div class="career-item">
+              <div class="career-years mono">2016 — 2020</div>
+              <div><div class="career-role">Data Scientist</div><div class="career-org">Energy sector — data governance and analytics foundations across the business.</div></div>
+            </div>
+            <div class="career-item">
+              <div class="career-years mono">2012 — 2016</div>
+              <div><div class="career-role">Senior Software Developer</div><div class="career-org">Energy sector — building enterprise BI and search platforms.</div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-block" data-route="about" data-sub="credentials">
+          <div class="block-head"><span class="block-n mono">04</span><h2>Credentials</h2></div>
+          <div class="cols">
+            <div>
+              <h3 class="block-title">Education</h3>
+              <div class="offer"><div class="offer-title">M.A.Sc., Applied Computing</div><div class="offer-desc">Wilfrid Laurier University, 2017 – 2019</div></div>
+              <div class="offer"><div class="offer-title">B.Sc., Computer Information Systems</div><div class="offer-desc">Mount Royal University, 2006 – 2011</div></div>
+            </div>
+            <div>
+              <h3 class="block-title">Technical Range</h3>
+              <div class="offer"><div class="offer-title">Cloud &amp; Data</div><div class="offer-desc">AWS (S3, Athena, Iceberg), Snowflake, Postgres, Airflow/MWAA, dbt, ClickHouse</div></div>
+              <div class="offer"><div class="offer-title">AI / ML</div><div class="offer-desc">Bedrock (RAG), SageMaker, LLM data access, agentic AI, predictive modeling, NLP</div></div>
+              <div class="offer"><div class="offer-title">Languages</div><div class="offer-desc">Python, SQL</div></div>
+            </div>
+          </div>
+          <div class="credentials-row">
+            <span class="credential">AWS CERTIFIED CLOUD PRACTITIONER</span>
+            <span class="credential">EVIDENCE STUDIO IMPLEMENTATION PARTNER</span>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- CONTACT -->
+      <div class="route-content" data-route="contact">
+
+        <section class="content-block" data-route="contact" data-sub="get-in-touch">
+          <div class="block-head"><span class="block-n mono">01</span><h2>Get in Touch</h2></div>
+          <div class="contact-card">
+            <h3>Book a call</h3>
+            <p>30 minutes, no pitch deck. We'll talk through what's going on with your data and whether an assessment or a direct build makes sense.</p>
+            <a class="cta" href="https://calendar.app.google/Z1bg9ZgdPiTysBp16" target="_blank" rel="noopener">Open the calendar →</a>
+          </div>
+          <div class="contact-card">
+            <h3>Email</h3>
+            <p>Prefer to write it out first? Send a note and I'll reply within one business day.</p>
+            <a class="cta-ghost" href="mailto:kaz@rwkit.io">kaz@rwkit.io</a>
+          </div>
+        </section>
+
+        <section class="content-block" data-route="contact" data-sub="good-to-know">
+          <div class="block-head"><span class="block-n mono">02</span><h2>Good to Know</h2></div>
+          <div class="contact-card">
+            <h3>Good to know</h3>
+            <div class="contact-list">
+              <div><span class="k">Based in</span><span>Calgary, Alberta, Canada</span></div>
+              <div><span class="k">Working with clients</span><span>Remote, North America</span></div>
+              <div><span class="k">Typical first step</span><span>Free assessment</span></div>
+              <div><span class="k">Typical response time</span><span>1 business day</span></div>
+            </div>
+          </div>
+          <p style="margin-top:18px; font-size:0.95rem; color:var(--ink-soft);">Not sure what you need yet? <a href="#services/offerings" style="color:var(--accent-bright); font-weight:700;">See services &amp; pricing</a> or <a href="#case-studies/deep-dive-1" style="color:var(--accent-bright); font-weight:700;">browse case studies</a> first.</p>
+        </section>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script src="assets/js/main.js"></script>
 </body>
 </html>
