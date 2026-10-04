@@ -124,4 +124,28 @@
   }
 
   document.addEventListener("DOMContentLoaded", initScrollSpy);
+
+  var root = document.documentElement;
+  var toggle = document.getElementById("theme-toggle");
+  var toggleLabel = toggle ? toggle.querySelector(".theme-toggle-label") : null;
+
+  function setTheme(theme, persist) {
+    root.setAttribute("data-theme", theme);
+    if (toggleLabel) toggleLabel.textContent = theme === "dark" ? "Light mode" : "Dark mode";
+    if (persist) { try { localStorage.setItem("theme", theme); } catch (e) {} }
+  }
+
+  setTheme(root.getAttribute("data-theme") === "dark" ? "dark" : "light", false);
+  if (toggle) {
+    toggle.addEventListener("click", function () {
+      setTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark", true);
+    });
+  }
+
+  var systemDark = window.matchMedia("(prefers-color-scheme: dark)");
+  systemDark.addEventListener("change", function (e) {
+    var saved = null;
+    try { saved = localStorage.getItem("theme"); } catch (err) {}
+    if (saved !== "light" && saved !== "dark") setTheme(e.matches ? "dark" : "light", false);
+  });
 })();
