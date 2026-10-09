@@ -1,4 +1,4 @@
-// RWKIT Consulting v3 — "Drill" router: rail (level 1) / scrollspy menu (level 2) / single-page detail (level 3)
+// RWKIT Consulting v3 — "Drill" router: rail / scrollspy menu / single-page detail (desktop three-panel; mobile top bar + drawer)
 
 (function () {
   var subsByRoute = {
@@ -37,11 +37,27 @@
     return { route: route, sub: sub, hadRoute: !!route, hadSub: !!sub };
   }
 
-  function setMobileLevel(state) {
+  // Mobile drawer menu
+  var menuToggle = document.getElementById("menu-toggle");
+  function setMenu(open) {
     if (!app) return;
-    app.classList.remove("level-1", "level-2", "level-3");
-    app.classList.add("level-" + state);
+    app.classList.toggle("menu-open", open);
+    document.body.classList.toggle("menu-open", open);
+    if (menuToggle) {
+      menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      menuToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    }
   }
+  if (menuToggle) {
+    menuToggle.addEventListener("click", function () { setMenu(!app.classList.contains("menu-open")); });
+  }
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") setMenu(false); });
+  document.addEventListener("click", function (e) {
+    if (e.target.closest(".rail-item") || e.target.closest(".rail-brand")) setMenu(false);
+    // Re-tapping the link for the current hash fires no hashchange; re-render so it still scrolls there.
+    var link = e.target.closest('a[href^="#"]');
+    if (link && link.getAttribute("href") === location.hash) render();
+  });
 
   function setActiveSubUI(route, sub) {
     subNavItems.forEach(function (item) {
@@ -69,17 +85,13 @@
 
     document.title = titles[route] || titles.home;
 
-    if (mq.matches) {
-      if (parsed.hadSub) setMobileLevel(3);
-      else if (parsed.hadRoute) setMobileLevel(2);
-      else setMobileLevel(1);
+    var behavior = routeChanged ? "instant" : "smooth";
+    if (mq.matches && !parsed.hadSub) {
+      // Mobile, route only: start at the route's hero. Skip on first paint so the page doesn't jump.
+      if (currentRoute !== null) window.scrollTo({ top: 0, behavior: behavior });
     } else {
-      setMobileLevel(1);
-    }
-
-    var target = document.querySelector('.content-block[data-route="' + route + '"][data-sub="' + sub + '"]');
-    if (target) {
-      target.scrollIntoView({ behavior: routeChanged ? "instant" : "smooth", block: "start" });
+      var target = document.querySelector('.content-block[data-route="' + route + '"][data-sub="' + sub + '"]');
+      if (target) target.scrollIntoView({ behavior: behavior, block: "start" });
     }
 
     currentRoute = route;
@@ -87,24 +99,8 @@
 
   window.addEventListener("hashchange", render);
   document.addEventListener("DOMContentLoaded", render);
-  mq.addEventListener ? mq.addEventListener("change", render) : mq.addListener(render);
-
-  function goTo(hash) {
-    history.pushState("", document.title, window.location.pathname + window.location.search + hash);
-    render();
-  }
-
-  document.addEventListener("click", function (e) {
-    var backBtn = e.target.closest(".mobile-back");
-    if (!backBtn) return;
-    e.preventDefault();
-    var parsed = parseHash();
-    if (backBtn.dataset.level === "detail" && parsed.route) {
-      goTo("#" + parsed.route);
-    } else {
-      goTo("");
-    }
-  });
+  function onViewportChange() { setMenu(false); render(); }
+  mq.addEventListener ? mq.addEventListener("change", onViewportChange) : mq.addListener(onViewportChange);
 
   // ---- Scrollspy: while free-scrolling the single-page detail pane, keep the
   // middle panel's active item (and breadcrumb) in sync without touching the URL hash.
