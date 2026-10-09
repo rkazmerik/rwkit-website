@@ -67,7 +67,7 @@ svg { display: block; }
 .rail-nav { display: flex; flex-direction: column; gap: 10px; flex: 1; width: 100%; align-items: stretch; padding-top: 6px; }
 .rail-item {
   display: flex; flex-direction: row; align-items: center; gap: 16px;
-  width: 100%; padding: 15px 4px; border-radius: 0;
+  width: 100%; padding: 15px 4px 15px 16px; border-radius: 0;
   text-decoration: none; color: var(--ink-soft);
   border-left: 3px solid transparent;
   transition: color 0.15s ease, border-color 0.15s ease;
@@ -154,7 +154,7 @@ svg { display: block; }
 @media (prefers-reduced-motion: reduce) { .route-content.active { animation: none; } }
 
 .content-block { padding: 60px 0; border-bottom: 1px solid var(--line); scroll-margin-top: 24px; }
-.content-block:first-child { padding-top: 12px; }
+.content-block:first-child { padding-top: 12px; scroll-margin-top: 64px; }
 .content-block:last-child { border-bottom: none; }
 .block-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 26px; }
 .block-head .block-n { font-family: "JetBrains Mono", monospace; font-size: 1rem; font-weight: 700; color: var(--accent-bright); }
@@ -343,14 +343,13 @@ noscript { display: block; padding: 40px; color: var(--ink); }
   .rail-brand { margin: 0; }
   .brand-logo { height: 36px; }
   .rail-cta {
-    position: static; margin-left: auto; height: 40px;
-    padding: 0 14px; border-radius: 8px; gap: 8px; box-shadow: none;
+    position: static; width: 100%; margin-top: 14px;
+    padding: 15px; border-radius: 0; gap: 10px; box-shadow: none;
   }
-  .rail-cta svg { width: 16px; height: 16px; }
-  .rail-cta .rail-label { font-size: 0.78rem; }
+  .rail-cta .rail-label { font-size: 0.86rem; }
   .menu-toggle {
     display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
-    width: 44px; height: 44px; margin-right: -8px; border-radius: 10px;
+    width: 44px; height: 44px; margin-left: auto; margin-right: -8px; border-radius: 10px;
     background: transparent; border: 0; color: var(--ink); cursor: pointer;
   }
   .menu-toggle svg { width: 26px; height: 26px; }
@@ -367,12 +366,12 @@ noscript { display: block; padding: 40px; color: var(--ink); }
     transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
   }
   .menu-open .rail-menu { visibility: visible; opacity: 1; transform: none; transition-delay: 0s; }
-  .rail-nav { gap: 2px; padding-top: 0; }
-  .rail-item { padding: 16px 14px; border-left: 0; border-radius: 10px; }
+  .rail-nav { flex: 0 0 auto; gap: 2px; padding-top: 0; }
+  .rail-item { padding: 16px 14px 16px 16px; border-radius: 0; }
   .rail-item.active { background: var(--accent-soft); }
   .rail-item svg { width: 22px; height: 22px; }
   .rail-item .rail-label { font-size: 1.1rem; font-weight: 700; }
-  .theme-toggle { margin-top: 20px; padding: 14px; }
+  .theme-toggle { margin-top: auto; padding: 14px; }
 
   /* Route hero + horizontal jump chips, in normal flow above the content */
   .section-pane {
@@ -384,7 +383,7 @@ noscript { display: block; padding: 40px; color: var(--ink); }
   .section-menu h2 { font-size: 1.7rem; }
   .section-menu .section-tagline { font-size: 0.95rem; margin-bottom: 20px; }
   .sub-nav {
-    flex-direction: row; gap: 8px; margin: 0 -16px; padding: 0 16px 4px;
+    flex-direction: row; gap: 8px; margin: 0 -16px; padding: 0 16px 4px; scroll-padding-left: 16px;
     overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none;
   }
   .sub-nav::-webkit-scrollbar { display: none; }
@@ -404,8 +403,9 @@ noscript { display: block; padding: 40px; color: var(--ink); }
   .detail-crumb { top: var(--topbar-h); padding: 14px 16px; font-size: 0.7rem; }
   .detail-body { padding: 8px 16px 60px; max-width: none; }
   .content-block { padding: 40px 0; scroll-margin-top: calc(var(--topbar-h) + 28px); }
-  .content-block:first-child { padding-top: 16px; }
+  .content-block:first-child { padding-top: 16px; scroll-margin-top: calc(var(--topbar-h) + 52px); }
   .block-head h2 { font-size: 1.6rem; }
+  .cta, .cta-ghost { width: 100%; justify-content: center; }
 
   h1 { font-size: 2rem; }
   .cols, .deep-grid, .career-item { grid-template-columns: 1fr; gap: 18px; }
