@@ -341,10 +341,10 @@ noscript { display: block; padding: 40px; color: var(--ink); }
     padding: 0 16px; border-right: none; border-bottom: 1px solid var(--line);
   }
   .rail-brand { margin: 0; }
-  .brand-logo { height: 36px; }
+  .brand-logo { height: 44px; }
   .rail-cta {
     position: static; width: 100%; margin-top: 14px;
-    padding: 15px; border-radius: 0; gap: 10px; box-shadow: none;
+    padding: 15px; border-radius: 10px; gap: 10px; box-shadow: none;
   }
   .rail-cta .rail-label { font-size: 0.86rem; }
   .menu-toggle {
