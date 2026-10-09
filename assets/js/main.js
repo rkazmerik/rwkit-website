@@ -51,7 +51,9 @@
   if (menuToggle) {
     menuToggle.addEventListener("click", function () { setMenu(!app.classList.contains("menu-open")); });
   }
-  document.addEventListener("keydown", function (e) { if (e.key === "Escape") setMenu(false); });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && !app.classList.contains("landing")) setMenu(false);
+  });
   document.addEventListener("click", function (e) {
     if (e.target.closest(".rail-item") || e.target.closest(".rail-brand")) setMenu(false);
     // Re-tapping the link for the current hash fires no hashchange; re-render so it still scrolls there.
@@ -84,6 +86,11 @@
     setActiveSubUI(route, sub);
 
     document.title = titles[route] || titles.home;
+
+    // Mobile landing: with no route in the URL, the menu itself is the page.
+    var landing = mq.matches && !parsed.hadRoute;
+    if (app) app.classList.toggle("landing", landing);
+    if (mq.matches) setMenu(landing);
 
     var behavior = routeChanged ? "instant" : "smooth";
     if (mq.matches && !parsed.hadSub) {

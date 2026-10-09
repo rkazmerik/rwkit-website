@@ -356,6 +356,7 @@ noscript { display: block; padding: 40px; color: var(--ink); }
   .menu-toggle .icon-close { display: none; }
   .menu-open .menu-toggle .icon-menu { display: none; }
   .menu-open .menu-toggle .icon-close { display: block; }
+  .landing .menu-toggle { display: none; }
 
   /* Drawer: the five routes + theme toggle, under the top bar */
   .rail-menu {
@@ -366,6 +367,7 @@ noscript { display: block; padding: 40px; color: var(--ink); }
     transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
   }
   .menu-open .rail-menu { visibility: visible; opacity: 1; transform: none; transition-delay: 0s; }
+  .landing .rail-menu { transition: none; }
   .rail-nav { flex: 0 0 auto; gap: 2px; padding-top: 0; }
   .rail-item { padding: 16px 14px 16px 16px; border-radius: 0; }
   .rail-item.active { background: var(--accent-soft); }
