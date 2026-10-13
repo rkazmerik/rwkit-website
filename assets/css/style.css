@@ -1,7 +1,11 @@
-/* RWKIT Consulting — v4: single lean page */
+/* RWKIT Consulting — v4: single lean page; background fades from tan to white as you scroll */
 
 :root {
-  --bg: #faf8f3;
+  /* --t goes from 0 (top of page) to 1 (bottom); set by main.js. Only the background moves. */
+  --t: 0;
+  --bg-top: #faf8f3;
+  --bg-bottom: #ffffff;
+  --bg: color-mix(in oklab, var(--bg-bottom) calc(var(--t) * 100%), var(--bg-top));
   --panel: #ffffff;
   --ink: #17181c;
   --ink-soft: #5c5d57;
@@ -13,22 +17,11 @@
   --line-strong: #17181c;
   color-scheme: light;
 }
-:root[data-theme="dark"] {
-  --bg: #121316;
-  --panel: #18191d;
-  --ink: #f2efe8;
-  --ink-soft: #b3b0a7;
-  --ink-faint: #7d7c75;
-  --accent: #c2491f;
-  --accent-bright: #e6743f;
-  --accent-ink: #ffffff;
-  --line: #2c2d33;
-  --line-strong: #55555a;
-  color-scheme: dark;
+/* Browsers without color-mix() keep the tan background throughout. */
+@supports not (color: color-mix(in oklab, red 50%, blue)) {
+  :root { --bg: #faf8f3; }
 }
 .logo-dark { display: none; }
-:root[data-theme="dark"] .logo-light { display: none; }
-:root[data-theme="dark"] .logo-dark { display: block; }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; scroll-padding-top: 90px; }
@@ -45,7 +38,8 @@ a { color: inherit; }
 img { max-width: 100%; display: block; }
 button { font-family: inherit; }
 svg { display: block; }
-h1, h2, h3 { line-height: 1.15; letter-spacing: -0.01em; }
+h1, h2, h3, h4 { line-height: 1.15; letter-spacing: -0.01em; }
+b { font-weight: 700; color: var(--ink); }
 
 /* ---- header ---- */
 .top {
@@ -60,17 +54,6 @@ h1, h2, h3 { line-height: 1.15; letter-spacing: -0.01em; }
 .top-nav a { font-size: 0.95rem; font-weight: 600; color: var(--ink-soft); text-decoration: none; }
 .top-nav a:hover { color: var(--accent-bright); }
 .top-actions { margin-left: auto; display: flex; align-items: center; gap: 12px; }
-
-.theme-toggle {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 40px; height: 40px; border-radius: 8px;
-  border: 1px solid var(--line); background: transparent; color: var(--ink-soft); cursor: pointer;
-}
-.theme-toggle:hover { color: var(--ink); border-color: var(--accent); }
-.theme-toggle svg { width: 18px; height: 18px; }
-.theme-toggle .icon-sun { display: none; }
-:root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
-:root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
 
 /* ---- buttons ---- */
 .cta, .cta-ghost {
@@ -95,28 +78,50 @@ main { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 .eyebrow::before { content: ""; width: 24px; height: 2px; background: var(--accent); }
 .lede { font-size: 1.2rem; color: var(--ink-soft); line-height: 1.7; max-width: 640px; }
 
-.hero { padding: 96px 0 88px; border-bottom: 1px solid var(--line); }
-.hero h1 { font-size: clamp(2.4rem, 5.5vw, 4.2rem); font-weight: 800; max-width: 820px; margin: 18px 0 22px; }
-
-.section { padding: 72px 0; border-bottom: 1px solid var(--line); }
+.section { padding: 80px 0; border-bottom: 1px solid var(--line); }
 .section-head { margin-bottom: 36px; }
 .section-head h2, .contact h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 700; max-width: 720px; margin-top: 14px; }
 
-.grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-.card, .stat { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 24px 20px; }
-.card .num { display: block; font-size: 0.8rem; color: var(--accent-bright); margin-bottom: 14px; }
-.card h3 { font-size: 1.05rem; margin-bottom: 8px; }
-.card p, .stat p { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.6; }
-.stat .big { font-size: 2.2rem; font-weight: 600; color: var(--accent-bright); margin-bottom: 10px; letter-spacing: -0.02em; }
+.hero { padding-top: 96px; }
+.hero h1 { font-size: clamp(2.4rem, 5.5vw, 4.2rem); font-weight: 800; max-width: 820px; margin: 18px 0 22px; }
 
-.principles { list-style: none; counter-reset: p; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.principles { list-style: none; counter-reset: p; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 72px; }
 .principles li { counter-increment: p; padding-top: 16px; border-top: 2px solid var(--line-strong); }
 .principles li::before { content: "0" counter(p); font-family: "JetBrains Mono", monospace; font-size: 0.8rem; color: var(--accent-bright); display: block; margin-bottom: 10px; }
 .principles h3 { font-size: 1.05rem; margin-bottom: 8px; }
 .principles p { font-size: 0.95rem; color: var(--ink-soft); }
+
+.grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 24px 20px; }
+.card .num { display: block; font-size: 0.8rem; color: var(--accent-bright); margin-bottom: 14px; }
+.card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+.card p { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.6; }
 .note { margin-top: 36px; font-size: 0.95rem; color: var(--ink-soft); max-width: 640px; padding-left: 16px; border-left: 3px solid var(--accent); }
 
-.about p { font-size: 1.08rem; color: var(--ink-soft); line-height: 1.7; max-width: 680px; margin-bottom: 16px; }
+/* ---- results ---- */
+.cases { display: grid; gap: 18px; }
+.case { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 30px 28px; }
+.case-label { display: flex; align-items: center; gap: 10px; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-bright); margin-bottom: 12px; }
+.case-label::before { content: ""; width: 20px; height: 2px; background: var(--accent); }
+.case h3 { font-size: 1.35rem; max-width: 760px; margin-bottom: 22px; }
+.case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.lbl { font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-bright); margin-bottom: 8px; }
+.case-grid p { font-size: 0.95rem; color: var(--ink-soft); line-height: 1.65; }
+.case-result { margin-top: 22px; padding: 16px 18px; border-left: 3px solid var(--accent); background: var(--bg-top); border-radius: 0 8px 8px 0; font-size: 1rem; color: var(--ink-soft); }
+
+.sub-head { font-size: 1.15rem; margin: 56px 0 20px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.wins { display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; }
+.win { padding: 22px 0; border-bottom: 1px solid var(--line); }
+.tag { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-bright); margin-bottom: 8px; }
+.win h4 { font-size: 1.02rem; margin-bottom: 6px; }
+.win p { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.6; }
+
+/* ---- about ---- */
+.about p { font-size: 1.08rem; color: var(--ink-soft); line-height: 1.7; max-width: 720px; margin-bottom: 16px; }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; margin-top: 36px; }
+.stat { background: var(--panel); padding: 22px 20px; }
+.stat .big { font-size: 2.1rem; font-weight: 600; color: var(--accent-bright); letter-spacing: -0.02em; margin-bottom: 6px; }
+.stat .lbl { text-transform: none; letter-spacing: 0; font-size: 0.86rem; color: var(--ink-soft); font-family: "Manrope", sans-serif; margin: 0; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
 .chip { font-family: "JetBrains Mono", monospace; font-size: 0.76rem; color: var(--ink-soft); border: 1px solid var(--line-strong); padding: 6px 12px; border-radius: 999px; }
 
@@ -132,17 +137,20 @@ main { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 
 /* ---- responsive ---- */
 @media (max-width: 900px) {
-  .grid { grid-template-columns: repeat(2, 1fr); }
-  .principles { grid-template-columns: 1fr; gap: 22px; }
+  .grid, .stats { grid-template-columns: repeat(2, 1fr); }
+  .principles { grid-template-columns: 1fr; gap: 22px; margin-top: 56px; }
+  .case-grid, .wins { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
   .top { padding: 14px 16px; gap: 16px; }
   .top-nav { display: none; }
   .brand img { height: 38px; }
   main { padding: 0 16px; }
-  .hero { padding: 56px 0 56px; }
+  .hero { padding-top: 56px; }
   .section { padding: 52px 0; }
   .grid { grid-template-columns: 1fr; }
+  .case { padding: 24px 18px; }
+  .case h3 { font-size: 1.2rem; }
   .ctas .cta, .ctas .cta-ghost { width: 100%; }
   .foot { padding: 20px 16px 32px; }
 }

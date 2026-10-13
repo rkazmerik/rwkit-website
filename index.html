@@ -13,53 +13,46 @@
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="shortcut icon" href="assets/img/favicon.ico">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/css/style.css?v=5">
-<script>
-  (function () {
-    var t = null;
-    try { t = localStorage.getItem("theme"); } catch (e) {}
-    if (t !== "light" && t !== "dark") t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    document.documentElement.setAttribute("data-theme", t);
-  })();
-</script>
+<link rel="stylesheet" href="assets/css/style.css?v=7">
 </head>
 <body>
 
 <header class="top">
-  <a class="brand" href="#top" aria-label="RWKIT Consulting">
+  <a class="brand" href="#overview" aria-label="RWKIT Consulting">
     <img class="logo-light" src="assets/img/logo-light.svg" alt="RWKIT Consulting" height="44">
     <img class="logo-dark" src="assets/img/logo-dark.svg" alt="RWKIT Consulting" height="44">
   </a>
   <nav class="top-nav" aria-label="Sections">
-    <a href="#what">What we do</a>
-    <a href="#how">How we work</a>
+    <a href="#overview">Overview</a>
+    <a href="#services">Services</a>
     <a href="#results">Results</a>
     <a href="#about">About</a>
   </nav>
   <div class="top-actions">
-    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode">
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-    </button>
     <a class="cta cta-small" href="https://calendar.app.google/Z1bg9ZgdPiTysBp16" target="_blank" rel="noopener">Book a call</a>
   </div>
 </header>
 
-<main id="top">
+<main>
 
-  <section class="hero">
+  <section class="section hero" id="overview">
     <div class="eyebrow mono">RWKIT Consulting</div>
     <h1>Exceptional engineering for the AI era.</h1>
-    <p class="lede">Senior, hands-on help across strategy, data, software, and AI. One partner who can see the whole problem, with a network of senior consultants behind it.</p>
+    <p class="lede">Senior, hands-on help across strategy, data, software, and AI. A partner who can see the whole problem, backed by a network of senior consultants who have solved it before.</p>
     <div class="ctas">
       <a class="cta" href="https://calendar.app.google/Z1bg9ZgdPiTysBp16" target="_blank" rel="noopener">Book a call →</a>
-      <a class="cta-ghost" href="mailto:kaz@rwkit.io">kaz@rwkit.io</a>
+      <a class="cta-ghost" href="#results">See results</a>
     </div>
+    <ol class="principles">
+      <li><h3>Start from the outcome</h3><p>Every engagement begins with the business question, not the tool.</p></li>
+      <li><h3>Build to be owned</h3><p>Simple, well-documented systems your team can run without us.</p></li>
+      <li><h3>Prove, then expand</h3><p>One domain end-to-end before the pattern is repeated.</p></li>
+    </ol>
   </section>
 
-  <section class="section" id="what">
+  <section class="section" id="services">
     <div class="section-head">
-      <div class="eyebrow mono">01 — What we do</div>
+      <div class="eyebrow mono">01 — Services</div>
       <h2>Advisory when you need direction. Delivery when you need it built.</h2>
     </div>
     <div class="grid">
@@ -68,55 +61,87 @@
       <div class="card"><span class="num mono">03</span><h3>AI &amp; Machine Learning</h3><p>From first experiment to production, applied where it moves a number.</p></div>
       <div class="card"><span class="num mono">04</span><h3>Software &amp; Delivery</h3><p>Applications, integrations, and fractional leadership to get it shipped.</p></div>
     </div>
-  </section>
-
-  <section class="section" id="how">
-    <div class="section-head">
-      <div class="eyebrow mono">02 — How we work</div>
-      <h2>Range over narrow depth. Durable over disposable.</h2>
-    </div>
-    <ol class="principles">
-      <li><h3>Start from the outcome</h3><p>Every engagement begins with the business question, not the tool.</p></li>
-      <li><h3>Build to be owned</h3><p>Simple, well-documented systems your team can run without us.</p></li>
-      <li><h3>Prove, then expand</h3><p>One domain end-to-end before the pattern is repeated.</p></li>
-    </ol>
     <p class="note">Every engagement starts with a free conversation. Advisory is fixed-fee. Delivery is fixed-fee or day-rate, agreed upfront.</p>
   </section>
 
   <section class="section" id="results">
     <div class="section-head">
-      <div class="eyebrow mono">03 — Results</div>
+      <div class="eyebrow mono">02 — Results</div>
       <h2>Anonymized to protect client confidentiality. The outcomes are real.</h2>
     </div>
-    <div class="grid">
-      <div class="stat"><div class="big mono">60%</div><p>Lower infrastructure cost after replacing a manual reporting workflow with a modern data platform.</p></div>
-      <div class="stat"><div class="big mono">2×</div><p>Brand deals unlocked by scaling audience segments from 20K to 2M users.</p></div>
-      <div class="stat"><div class="big mono">40%</div><p>Increase in adoption, and $200K in new revenue, after rebuilding trust in a model nobody used.</p></div>
-      <div class="stat"><div class="big mono">90 → 12</div><p>Days of turnaround after redesigning a data process end to end.</p></div>
+
+    <div class="cases">
+      <article class="case">
+        <div class="case-label mono">Modernization · 01</div>
+        <h3>From hand-built reports to a platform the whole business could use</h3>
+        <div class="case-grid">
+          <div><div class="lbl mono">Situation</div><p>A media company answered every data question by hand: a request came in, someone wrote a one-off query, and the answer went back as a static spreadsheet. Nothing was reusable.</p></div>
+          <div><div class="lbl mono">Approach</div><p>Designed and built a modern cloud data platform around a single governed model, one source of truth serving dashboards, self-serve analysis, and AI alike. The architecture was chosen for the real workload, not the fashionable one.</p></div>
+        </div>
+        <div class="case-result">Eliminated the manual reporting workflow entirely, at roughly <b>60% lower infrastructure cost</b> than the conventional approach.</div>
+      </article>
+
+      <article class="case">
+        <div class="case-label mono">AI Adoption · 02</div>
+        <h3>An AI roadmap built on a foundation that could carry it</h3>
+        <div class="case-grid">
+          <div><div class="lbl mono">Situation</div><p>A growing SaaS company wanted more than dashboards: AI that could act directly on customer and product data, without standing up a fragile stack to get there.</p></div>
+          <div><div class="lbl mono">Approach</div><p>Foundation first: a governed, near-real-time data layer with strict customer isolation. Then the AI capability built directly on top of it, with one domain proven end-to-end before expanding.</p></div>
+        </div>
+        <div class="case-result">A phased roadmap the client could execute with confidence: <b>MVP in 6–8 weeks</b>, expansion in <b>10–12 weeks</b>, AI added only once the foundation was proven.</div>
+      </article>
+
+      <article class="case">
+        <div class="case-label mono">Growth · 03</div>
+        <h3>Turning disconnected marketing data into a revenue engine</h3>
+        <div class="case-grid">
+          <div><div class="lbl mono">Situation</div><p>An advertising business's acquisition data lived inside each media platform it bought from, disconnected from what customers actually did once they arrived.</p></div>
+          <div><div class="lbl mono">Approach</div><p>Unified acquisition and engagement data into one identity-resolved view of every customer, then built an AI-driven intelligence and segmentation layer on top so segments were based on behaviour, not just clicks.</p></div>
+        </div>
+        <div class="case-result">Audience segments scaled from <b>20K to 2M users</b>, doubling the brand deals the business could unlock.</div>
+      </article>
+    </div>
+
+    <h3 class="sub-head">More from the field</h3>
+    <div class="wins">
+      <div class="win"><span class="tag mono">AI Strategy</span><h4>From AI prototype to a funded roadmap</h4><p>Customer discovery, a working prototype, and an on-site demo with real users. Secured a <b>$60K partnership commitment</b>.</p></div>
+      <div class="win"><span class="tag mono">New Revenue</span><h4>Scoping a data partnership between two enterprises</h4><p>Navigated strict privacy and ownership constraints to three viable options. Secured a <b>$100K paid pilot</b>.</p></div>
+      <div class="win"><span class="tag mono">Adoption</span><h4>Rebuilding trust in a model nobody used</h4><p>Diagnosed the mistrust and redesigned around an interpretable model. <b>40% increase in adoption</b>, $200K in new revenue.</p></div>
+      <div class="win"><span class="tag mono">Operations</span><h4>Cutting a 90-day data process down to 12</h4><p>Evaluated vendors, ran a focused pilot, and redesigned the process end to end. Turnaround cut <b>from 90 days to 12</b>.</p></div>
+      <div class="win"><span class="tag mono">Cost Control</span><h4>Moving data science from experiments to production</h4><p>A fully managed pipeline with automated infrastructure and cost controls. One year in, costs rose <b>just 0.2%</b>.</p></div>
+      <div class="win"><span class="tag mono">Retention</span><h4>A retention model that beat the industry benchmark</h4><p>Daily automated scoring on engagement and transaction data. Renewals up an additional <b>8%</b>.</p></div>
+      <div class="win"><span class="tag mono">Safety &amp; Risk</span><h4>Surfacing safety insights from years of operational records</h4><p>A custom search and analytics platform over unstructured incident reports. A direct, <b>searchable view</b> into safety trends.</p></div>
+      <div class="win"><span class="tag mono">Data Culture</span><h4>From immature data culture to AI-driven decisions</h4><p>Taking organizations from ad hoc reporting to AI-driven analytics. Outcomes from <b>20%+ revenue increases</b> to <b>10x</b> data utilization.</p></div>
     </div>
   </section>
 
   <section class="section" id="about">
     <div class="section-head">
-      <div class="eyebrow mono">04 — About</div>
-      <h2>Ryan Kazmerik, Founder &amp; Principal.</h2>
+      <div class="eyebrow mono">03 — About</div>
+      <h2>A senior network, not a bench.</h2>
     </div>
     <div class="about">
-      <p>Fifteen-plus years in technology as a software developer, data scientist, engineering director, and head of data and AI. That range is the point: enough seats to see a problem whole, and enough systems built to know which ones last.</p>
-      <p>When a project needs more than one person, a peer network of senior consultants who have done this before.</p>
-      <div class="chips">
-        <span class="chip">Energy</span>
-        <span class="chip">Sports &amp; Entertainment</span>
-        <span class="chip">Media &amp; Ad Tech</span>
-        <span class="chip">SaaS</span>
-        <span class="chip">Logistics</span>
-        <span class="chip">Higher Education</span>
-      </div>
+      <p>RWKIT is built around a peer network of senior consultants: people who have led data, engineering, and product organizations, not just worked in them. Every engagement is led by a principal with 15+ years in the field and staffed from that network as the work demands. One person when that's right, a small senior team when it isn't.</p>
+      <p>The range is the point. Between us we've built the platforms, shipped the models, run the teams, and owned the roadmap, across six industries. That's what lets us work from the business outcome back to the right solution, whatever shape it turns out to be.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="big mono">15+</div><div class="lbl">Years of technology leadership</div></div>
+      <div class="stat"><div class="big mono">5+</div><div class="lbl">Engineering teams built</div></div>
+      <div class="stat"><div class="big mono">20+</div><div class="lbl">People on the largest team led</div></div>
+      <div class="stat"><div class="big mono">6</div><div class="lbl">Industries served</div></div>
+    </div>
+    <div class="chips">
+      <span class="chip">Energy</span>
+      <span class="chip">Sports &amp; Entertainment</span>
+      <span class="chip">Media &amp; Ad Tech</span>
+      <span class="chip">SaaS</span>
+      <span class="chip">Logistics</span>
+      <span class="chip">Higher Education</span>
     </div>
   </section>
 
   <section class="section contact" id="contact">
-    <div class="eyebrow mono">05 — Contact</div>
+    <div class="eyebrow mono">04 — Contact</div>
     <h2>Let's talk.</h2>
     <p class="lede">Thirty minutes, no pitch deck. We'll talk through what's going on and whether RWKIT is the right fit.</p>
     <div class="ctas">
@@ -132,6 +157,6 @@
   <span>Calgary, Alberta · Remote across North America</span>
 </footer>
 
-<script src="assets/js/main.js?v=5"></script>
+<script src="assets/js/main.js?v=7"></script>
 </body>
 </html>

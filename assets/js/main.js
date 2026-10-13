@@ -1,26 +1,22 @@
-// RWKIT Consulting v4 — theme toggle and footer year
+// RWKIT Consulting v4 — scroll-driven background fade (tan to white), plus footer year
 (function () {
   var root = document.documentElement;
-  var toggle = document.getElementById("theme-toggle");
+  var ticking = false;
 
-  function setTheme(theme, persist) {
-    root.setAttribute("data-theme", theme);
-    if (persist) { try { localStorage.setItem("theme", theme); } catch (e) {} }
+  function update() {
+    ticking = false;
+    var max = root.scrollHeight - window.innerHeight;
+    var t = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+    root.style.setProperty("--t", t.toFixed(3));
+  }
+  function onScroll() {
+    if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
   }
 
-  if (toggle) {
-    toggle.addEventListener("click", function () {
-      setTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark", true);
-    });
-  }
-
-  var systemDark = window.matchMedia("(prefers-color-scheme: dark)");
-  function onSystemChange(e) {
-    var saved = null;
-    try { saved = localStorage.getItem("theme"); } catch (err) {}
-    if (saved !== "light" && saved !== "dark") setTheme(e.matches ? "dark" : "light", false);
-  }
-  systemDark.addEventListener ? systemDark.addEventListener("change", onSystemChange) : systemDark.addListener(onSystemChange);
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  window.addEventListener("load", update);
+  update();
 
   var year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
