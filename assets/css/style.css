@@ -24,7 +24,7 @@
 .logo-dark { display: none; }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; overflow-x: clip; }
 body {
   font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: var(--bg);
@@ -97,6 +97,57 @@ main { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 .card h3 { font-size: 1.05rem; margin-bottom: 8px; }
 .card p { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.6; }
 .note { margin-top: 36px; font-size: 0.95rem; color: var(--ink-soft); max-width: 640px; padding-left: 16px; border-left: 3px solid var(--accent); }
+
+/* ---- themed bands ----
+   A band runs edge to edge while its content stays on the main column: the negative margins reach the
+   viewport, the matching padding brings the content back. Each band re-scopes the colour variables the
+   components already use (panel, ink, accent, line), so cards, labels, buttons and borders follow.
+   `.section.band` outranks the responsive `.section { padding }` rules below, which would otherwise zero the
+   side padding on small screens. */
+.section.band {
+  margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);
+  padding-left: calc(50vw - 50%); padding-right: calc(50vw - 50%);
+  background: var(--band-bg);
+  color: var(--ink);
+  border-bottom: 0;
+}
+/* The colour change is the separator: the section before a band drops its hairline, and so does the footer
+   when the page ends on one. */
+.section:has(+ .band) { border-bottom: 0; }
+main:has(> .band:last-child) + .foot { border-top: 0; }
+/* Night shift: the RWKIT dark theme. The accent lightens, so labels on an accent fill switch to dark ink. */
+.band-dark {
+  --band-bg: #141518;
+  --panel: #1d1e22;
+  --bg-top: #26272b;          /* panel-2: the tinted result callout */
+  --ink: #ece7dc;
+  --ink-soft: #a9a69c;
+  --ink-faint: #8e8b82;
+  --accent: #e0703f;
+  --accent-bright: #ec8a5c;
+  --accent-ink: #17181c;
+  --line: #34352f;
+  --line-strong: #ece7dc;
+  color-scheme: dark;
+}
+/* Rust: the accent as a ground (accent-bright, 6:1 under paper ink). Paper takes over the accent role, so
+   the primary button inverts to a paper fill with a rust label and the eyebrow dash turns paper. */
+.band-rust {
+  --band-bg: #a83a1a;
+  --panel: #b4451f;
+  --bg-top: #b4451f;
+  --ink: #faf8f3;
+  --ink-soft: #f3d9cc;
+  --ink-faint: #e8bfab;
+  --accent: #faf8f3;
+  --accent-bright: #ffffff;
+  --accent-ink: #a83a1a;
+  --line: rgba(250, 248, 243, 0.28);
+  --line-strong: #faf8f3;
+  color-scheme: dark;
+}
+.band-rust .eyebrow { color: var(--ink-soft); }
+.band-rust .cta:hover { background: var(--accent-bright); }
 
 /* ---- results ---- */
 .cases { display: grid; gap: 18px; }
