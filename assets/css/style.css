@@ -177,7 +177,29 @@ main:has(> .band:last-child) + .foot { border-top: 0; }
 .chip { font-family: "JetBrains Mono", monospace; font-size: 0.76rem; color: var(--ink-soft); border: 1px solid var(--line-strong); padding: 6px 12px; border-radius: 999px; }
 
 .contact { border-bottom: 0; padding-bottom: 96px; }
+.contact-inner { position: relative; } /* the signal is placed against the content column, not the band */
 .contact h2 { margin-bottom: 14px; }
+.contact .lede { max-width: 560px; }
+
+/* Signal: the brand's Signal Pulse repeated as a telemetry trace. A faint paper trace sits still; a brighter
+   segment travels along it, one pass per cycle, so the section carries a little motion without a gradient
+   or a shadow. pathLength normalises the trace to 1000 so the dash maths is independent of its real length. */
+.contact-signal {
+  position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+  width: 40%; max-width: 520px; height: auto;
+  pointer-events: none;
+}
+.signal-trace { fill: none; stroke: var(--ink); stroke-opacity: 0.22; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.signal-live {
+  fill: none; stroke: var(--ink); stroke-opacity: 0.9; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;
+  stroke-dasharray: 140 860;
+  stroke-dashoffset: 1000;
+  animation: signal-pass 7s linear infinite;
+}
+@keyframes signal-pass { to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .signal-live { animation: none; stroke-dasharray: none; stroke-opacity: 0.5; }
+}
 
 .foot {
   max-width: 1080px; margin: 0 auto; padding: 24px 24px 40px;
@@ -191,6 +213,7 @@ main:has(> .band:last-child) + .foot { border-top: 0; }
   .grid, .stats { grid-template-columns: repeat(2, 1fr); }
   .principles { grid-template-columns: 1fr; gap: 22px; margin-top: 56px; }
   .case-grid, .wins { grid-template-columns: 1fr; }
+  .contact-signal { position: static; transform: none; width: 100%; max-width: none; margin-top: 40px; }
 }
 @media (max-width: 640px) {
   .top { padding: 14px 16px; gap: 16px; }
